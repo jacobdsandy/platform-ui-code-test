@@ -1,4 +1,46 @@
-<div class="list-container">
-  <h2>Providers</h2>
-
+<div class="container">
+  <mat-card class="unselected-providers">
+    <mat-card-header>
+      <mat-card-title>Providers</mat-card-title>
+    </mat-card-header>
+    <br />
+    <mat-card-content>
+      <div
+        *ngIf="unselectedProviders.length === 0; else unselectedProvidersLoop"
+        class="no-results-message"
+      >
+        <span>All Providers are saved.</span>
+      </div>
+      <ng-template #unselectedProvidersLoop>
+        <div *ngFor="let provider of unselectedProviders">
+          <app-provider-card
+            [provider]="provider"
+            (itemClicked)="onItemClicked($event)"
+          ></app-provider-card>
+        </div>
+      </ng-template>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="selected-providers">
+    <mat-card-header>
+      <mat-card-title>Saved Providers</mat-card-title>
+    </mat-card-header>
+    <br />
+    <mat-card-content>
+      <div
+        *ngIf="selectedProviders.length === 0; else selectedProvidersLoop"
+        class="no-results-message"
+      >
+        <span>There are no saved Providers.</span>
+      </div>
+      <ng-template #selectedProvidersLoop>
+        <div *ngFor="let provider of selectedProviders">
+          <app-provider-card
+            [provider]="provider"
+            [selected]="true"
+            (itemClicked)="onItemClicked($event)"
+          ></app-provider-card></div
+      ></ng-template>
+    </mat-card-content>
+  </mat-card>
 </div>

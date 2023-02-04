@@ -1,0 +1,8 @@
+mat-toolbar {
+    background: #463F3A; 
+    color: #BCB8B1;
+}
+
+mat-toolbar span {
+    cursor: pointer;
+}

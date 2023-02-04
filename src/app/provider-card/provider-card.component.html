@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ provider.name }}</mat-card-title>
+    <div class="icon-container" (click)="iconClicked()">
+      <i *ngIf="!selected" class="material-symbols-outlined fav-icon">
+        favorite
+      </i>
+      <i *ngIf="selected" class="material-symbols-outlined close-icon">
+        close
+      </i>
+    </div>
+  </mat-card-header>
+  <br />
+  <mat-card-content>
+    <p>
+      {{ provider.address }}
+    </p>
+    <p *ngIf="provider.phone.length == 10; else badNumber">
+      ({{ provider.phone | slice : 0 : 3 }})-{{
+        provider.phone | slice : 3 : 6
+      }}-{{ provider.phone | slice : 6 : 10 }}
+    </p>
+    <ng-template #badNumber>
+      <p>{{ provider.phone }}</p>
+    </ng-template>
+  </mat-card-content>
+</mat-card>

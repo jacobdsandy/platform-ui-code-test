@@ -1,0 +1,25 @@
+mat-card {
+    background: #F4F3EE; 
+    margin:  1em;  
+}
+
+mat-card-content, mat-card-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon-container {
+    cursor: pointer;
+}
+
+.fav-icon:hover {
+    font-family: 'Material Icons';
+    color: red;
+    font-size: 30px;
+    transition: font-size .1s ease-out;
+}
+
+.close-icon:hover {
+    background-color: rgba(236, 236, 236, 0.856);
+    border-radius: 4px;
+}
