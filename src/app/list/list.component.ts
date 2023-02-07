@@ -50,12 +50,12 @@ export class ListComponent implements OnInit {
   }
 
   onItemClicked(item: any): void {
-    const unselectedProviderIndex = this.unselectedProviders.indexOf(item);
+    const unselectedProviderIndex = this.unselectedProviders.findIndex((provider) => item.id === provider.id);
     if(unselectedProviderIndex > -1){
       this.unselectedProviders.splice(unselectedProviderIndex, 1);
       this.selectedProviders.push(item)
     } else {
-      const selectedProviderIndex = this.selectedProviders.indexOf(item);
+      const selectedProviderIndex = this.selectedProviders.findIndex((provider) => item.id === provider.id);
       if(selectedProviderIndex > -1){
         this.selectedProviders.splice(selectedProviderIndex, 1);
         this.unselectedProviders.push(item)
